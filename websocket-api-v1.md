@@ -3,7 +3,7 @@
 ### WEBSOCKET API
 
 ``
-wss://ws.fibtc.com/websocket
+wss://ws.xt.com/websocket
 ``
 
 
