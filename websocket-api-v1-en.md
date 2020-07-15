@@ -10,7 +10,7 @@ It is recommended that developer use the Rest API when performing functions such
 
 ###WEBSOCKET API
 ``
-wss://ws.fibtc.com/websocket
+wss://ws.xt.com/websocket
 ``
 
 ### Data compression
