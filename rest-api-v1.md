@@ -3,7 +3,7 @@
 ### REST API
 
 ``
-https://api.fibtc.com
+https://api.xt.com
 ``
 
 鉴于延迟高和稳定性差等原因，不建议通过代理的方式访问Ubiex API。
@@ -26,7 +26,7 @@ https://api.fibtc.com
 
 一个合法的请求由以下几部分组成：
 
-方法请求地址：即访问服务器地址 `api.fibtc.com`，比如 `api.fibtc.com/trade/api/v1/order`。
+方法请求地址：即访问服务器地址 `api.xt.com`，比如 `api.xt.com/trade/api/v1/order`。
 
 API 访问密钥（accesskey）：您申请的 API Key 中的 Access Key。
 
@@ -41,7 +41,7 @@ API 访问密钥（accesskey）：您申请的 API Key 中的 Access Key。
 规范要计算签名的请求 因为使用 HMAC 进行签名计算时，使用不同内容计算得到的结果会完全不同。所以在进行签名计算前，请先对请求进行规范化处理。下面以查询某订单详情请求为例进行说明：
 
 
-`https://api.fibtc.com/trade/api/v1/getOrder?accesskey={AccessKey}&market={Market}&nonce={Timestamp}&id={OrderId}&signature={Signature}`
+`https://api.xt.com/trade/api/v1/getOrder?accesskey={AccessKey}&market={Market}&nonce={Timestamp}&id={OrderId}&signature={Signature}`
 
 按照ASCII码的顺序对参数名进行排序,将各参数使用字符 “&” 连接，例如下面就是排序之后结果：
 
