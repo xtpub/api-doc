@@ -2,7 +2,7 @@
 
 ### REST API
 ``
-    https://api.fibtc.com
+    https://api.xt.com
 ``
 
 Due to the reasons of high latency and poor stability, it is not recommend to access the UBIEX API through a proxy.
@@ -22,7 +22,7 @@ The request of API is likely to be tampered during the transmission through the 
 
 A legitimate request consists of the following parts:
 
-Way to request an address: Accessing the server address `api.fibtc.com` such as `api.fibtc.com/trade/api/v1/order`.
+Way to request an address: Accessing the server address `api.xt.com` such as `api.xt.com/trade/api/v1/order`.
 
 API accesskey: There is the Access Key in the API Key you applied for.
 
@@ -34,7 +34,7 @@ Signature: A value calculated by the signature to ensure the signature is valid 
 
 Standardize the request to calculate signature. When HMAC is used for signature calculation, the calculation result using different content will be completely different. Therefore, before performing signature calculation, please standardize the request. The following takes the query of an order details request as an example:
 
-`https://api.fibtc.com/trade/api/v1/getOrder?accesskey={AccessKey}&market={Market}&nonce={Timestamp}&id={OrderId}&signature={Signature}`
+`https://api.xt.com/trade/api/v1/getOrder?accesskey={AccessKey}&market={Market}&nonce={Timestamp}&id={OrderId}&signature={Signature}`
 
 Sort the parameter names according to the order of ASCII codes, and concatenate each parameter with the character "&".
 
