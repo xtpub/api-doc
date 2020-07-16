@@ -6,7 +6,7 @@
 https://api.xt.com
 ``
 
-鉴于延迟高和稳定性差等原因，不建议通过代理的方式访问Ubiex API。
+鉴于延迟高和稳定性差等原因，不建议通过代理的方式访问API。
 
 请求头信息请设置为：`Content-Type=application/x-www-form-urlencoded`
 
@@ -30,9 +30,9 @@ https://api.xt.com
 
 API 访问密钥（accesskey）：您申请的 API Key 中的 Access Key。
 
-时间戳（nonce）：您应用程序发出请求的时间戳，13位毫秒数，Ubiex将根据这个时间戳检验您API请求的有效性。
+时间戳（nonce）：您应用程序发出请求的时间戳，13位毫秒数，将根据这个时间戳检验您API请求的有效性。
 
-签名(signature)：签名计算得出的值，用于确保签名有效和未被篡改，Ubiex使用 `HmacSHA256`。
+签名(signature)：签名计算得出的值，用于确保签名有效和未被篡改，使用 `HmacSHA256`。
 
 <br/>
 
@@ -1000,7 +1000,7 @@ nonce | integer | true | N/A | 13位毫秒数 |
 accesskey | string | true | N/A | 访问密钥 | 
 nonce | integer | true | N/A | 13位毫秒数 | 
 coin | string | true | N/A | 币种名称 | btc,eth,ltc...
-address | string | true | N/A | 提现地址 | 仅支持您在Ubiex的认证地址
+address | string | true | N/A | 提现地址 | 仅支持您在XT的认证地址
 memo | string | false | N/A | memo | 提现地址memo，如EOS等
 amount | float | true | N/A | 提现数量 | 不能低于当前币种最低提现额度
 innerTransfer | integer | false | 0 | 是否内部地址转账，享受0手续费 | 0、否 1、是
