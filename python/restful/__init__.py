@@ -21,7 +21,7 @@ def getSignature(kwargs: dict, secretKey: str) -> str:
 
 
 class UbiexSDK():
-    URL = "https://api.ubiex.co"
+    URL = "https://api.xt.pub"
 
     def __init__(self, accessKey: str, secretKey: str):
         super().__init__()
