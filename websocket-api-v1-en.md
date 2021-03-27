@@ -10,7 +10,7 @@ It is recommended that developer use the Rest API when performing functions such
 
 ###WEBSOCKET API
 ``
-wss://quotation.xt.pub/websocket
+wss://xtsocket.xt.pub/websocket
 ``
 
 ### Data compression
