@@ -3,7 +3,7 @@
 ### WEBSOCKET API
 
 ``
-wss://quotation.xt.pub/websocket
+wss://xtsocket.xt.pub/websocket
 ``
 
 
