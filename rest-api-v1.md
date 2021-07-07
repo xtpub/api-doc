@@ -6,7 +6,8 @@
 正式:
 https://api.xt.com
 ```
-```备用:
+```
+备用:
 https://api.xt.pub
 https://api.xtvip.top
 https://api.xtvip.biz
