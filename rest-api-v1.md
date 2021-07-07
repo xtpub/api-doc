@@ -3,8 +3,13 @@
 ### REST API
 
 ```
-https://api.xtvip.top (中国)
-https://api.xt.com (其他)
+中国:
+https://api.xt.pub
+https://api.xtvip.top
+```
+```
+其他:
+https://api.xt.com
 ```
 
 鉴于延迟高和稳定性差等原因，不建议通过代理的方式访问API。
