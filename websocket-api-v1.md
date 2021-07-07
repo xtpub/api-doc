@@ -2,9 +2,16 @@
 
 ### WEBSOCKET API
 
-``
+
+```
+中国:
 wss://xtsocket.xt.pub/websocket
-``
+wss://xtsocket.xtvip.top/websocket
+```
+```
+其他:
+wss://xtsocket.xt.com/websocket
+```
 
 
 <br/>
