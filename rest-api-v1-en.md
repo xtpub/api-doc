@@ -4,11 +4,11 @@
 
 
 ```
-Preferred:
+Official:
 https://api.xt.com
 ```
 ```
-Candidate:
+Spare:
 https://api.xt.pub
 https://api.xtvip.top
 https://api.xtvip.biz
