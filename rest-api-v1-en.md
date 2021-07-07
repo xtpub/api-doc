@@ -4,13 +4,14 @@
 
 
 ```
-China:
+Preferred:
+https://api.xt.com
+```
+```
+Candidate:
 https://api.xt.pub
 https://api.xtvip.top
-```
-```
-Other:
-https://api.xt.com
+https://api.xtvip.biz
 ```
 
 Due to the reasons of high latency and poor stability, it is not recommend to access the UBIEX API through a proxy.
