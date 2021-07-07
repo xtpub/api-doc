@@ -9,9 +9,15 @@ It is recommended that developer use the Rest API when performing functions such
 ### Access Description
 
 ###WEBSOCKET API
-``
+```
+China:
 wss://xtsocket.xt.pub/websocket
-``
+wss://xtsocket.xtvip.top/websocket
+```
+```
+Other:
+wss://xtsocket.xt.com/websocket
+```
 
 ### Data compression
 All data of the WebSocket API is compressed by GZIP, then Base64.encode () is encoded and returned in binary mode, and the user needs to decode and decompress after receiving the binary data.
