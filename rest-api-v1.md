@@ -3,7 +3,8 @@
 ### REST API
 
 ``
-https://api.xt.com (其他)
+https://api.xt.com (其他) 
+
 https://api.xtvip.top (中国)
 ``
 
