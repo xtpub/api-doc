@@ -1,9 +1,17 @@
 ## Access Description
 
 ### REST API
-``
-    https://api.xt.com
-``
+
+
+```
+China:
+https://api.xt.pub
+https://api.xtvip.top
+```
+```
+Other:
+https://api.xt.com
+```
 
 Due to the reasons of high latency and poor stability, it is not recommend to access the UBIEX API through a proxy.
 
