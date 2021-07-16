@@ -111,6 +111,7 @@ API 访问密钥（accesskey）：您申请的 API Key 中的 Access Key。
 {
   "ltc_usdt": {
     "minAmount": 0.00010,       // 最小下单数量
+    "minMoney": 5,       	// 最小下单金额
     "pricePoint": 2,            // 价格小数点(价格精度，不能大于此精度)
     "coinPoint": 4,             // 数量小数点(数量精度，不能大于此精度)
     "maker": 0.00100000,        // 主动单交易手续费
