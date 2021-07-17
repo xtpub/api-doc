@@ -102,6 +102,7 @@ GET /data/api/v1/getMarketConfig
 {
   "ltc_usdt": {
     "minAmount": 0.00010,       // minimum order quantity
+    "minMoney": 0,		// minimum order money
     "pricePoint": 2,            // price decimal point
     "coinPoint": 4,             // number decimal point
     "maker": 0.00100000,        // Active transaction fee
@@ -109,6 +110,7 @@ GET /data/api/v1/getMarketConfig
   }
   "eth_usdt": {
     "minAmount": 0.00010,
+    "minMoney": 0,
     "pricePoint": 2,
     "coinPoint": 4,
     "maker": 0.00100000,
@@ -116,6 +118,7 @@ GET /data/api/v1/getMarketConfig
   },
   "btc_usdt": {
     "minAmount": 0.0000010,
+    "minMoney": 0,
     "pricePoint": 2,
     "coinPoint": 6,
     "maker": 0.00100000,
