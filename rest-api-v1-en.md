@@ -186,14 +186,14 @@ market|string|true|N/A|Trading markets|btc_usdt, eth_usdt...
 
 ```js
 {
-  "high": 11776.93,
-  "moneyVol": 33765013.61761934,    // Turnover
+  "high": 11776.93,                 // Highest price in 24 hours
+  "low": 11012.17,                  // Lowest price in 24 hours
   "rate": 1.3900,                   // Changes within 24 hours
-  "low": 11012.17,
-  "price": 11609.92,
-  "ask": 11618.25,
-  "bid": 11604.08,
-  "coinVol": 2944.208780            // Volume
+  "price": 11609.92,                // Last traded price
+  "ask": 11618.25,                  // First sell order
+  "bid": 11604.08,                  // First buy order
+  "coinVol": 2944.208780,           // Volume
+  "moneyVol": 33765013.61761934     // Turnover
 }
 ```
 <br/>
@@ -245,17 +245,17 @@ market|string|true|N/A|Trading markets|btc_usdt, eth_usdt...
 ```js
 {
   "last": 11591.26,     // Latest transaction price
-  "asks": [
+  "asks": [             // Seller
     [
-      11594.80, 
-      0.049472
+      11594.80,         //Turnover
+      0.049472          //Volume
     ],
     [
       11594.86,
       0.048462
     ]
   ],
-  "bids": [
+  "bids": [             //Buyer
        [
          11590.06,
          0.188749
@@ -292,11 +292,11 @@ market|string|true|N/A|Trading markets|btc_usdt, eth_usdt...
     156292405956105
   ],
   [
-    1562924059006,
-    11613.22,
-    0.000086,
-    "bid",
-    156292405956104
+    1562924059006,      // Timestamp
+    11613.22,           // Turnover
+    0.000086,           // Volume
+    "bid",              // Trading type [bid:buy ask：sell]
+    156292405956104     // Record ID
   ]
 ]
 ```
