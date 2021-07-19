@@ -14,7 +14,7 @@ https://api.xtvip.top
 https://api.xtvip.biz
 ```
 
-Due to the reasons of high latency and poor stability, it is not recommend to access the UBIEX API through a proxy.
+Due to the reasons of high latency and poor stability, it is not recommend to access the XT API through a proxy.
 
 The request header information is set to: `Content-Type=application/x-www-form-urlencoded`
 <br/>
@@ -35,9 +35,9 @@ Way to request an address: Accessing the server address `api.xt.com` such as `ap
 
 API accesskey: There is the Access Key in the API Key you applied for.
 
-Timestamp (nonce): The timestamp of your application's request, 13-bit milliseconds. UBIEX will verify the validity of your API request based on this timestamp.
+Timestamp (nonce): The timestamp of your application's request, 13-bit milliseconds. XT will verify the validity of your API request based on this timestamp.
 
-Signature: A value calculated by the signature to ensure the signature is valid and has not been tampered. UBIEX uses HmacSHA256.
+Signature: A value calculated by the signature to ensure the signature is valid and has not been tampered. XT uses HmacSHA256.
 
 ### Signing steps
 
@@ -957,7 +957,7 @@ Parameter|Type|True or false|Default value|Description|Ranges
 accesskey|string|true|N/A|Access private key|
 nonce|integer|true|N/A|13-bit milliseconds|
 coin|string|true|N/A|Coin name|btc,eth,ltc...
-address|string|true|N/A|Withdrawal address|Only your certified addresses at Ubiex are supported
+address|string|true|N/A|Withdrawal address|Only your certified addresses at XT are supported
 memo|string|false|N/A|memo|Withdrawal address & memo, like EOS
 amount|float|true|N/A|Withdrawal quantities|Cannot lower than the minimum withdrawal amount of the current coins
 innerTransfer|integer|false|0|Whether the internal addresses transfer, enjoy 0 fee|0、False 1、True
