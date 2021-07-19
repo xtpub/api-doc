@@ -15,7 +15,7 @@ https://api.xt.pub
 
 鉴于延迟高和稳定性差等原因，不建议通过代理的方式访问API。
 
-GET请求参数放入query Params中，POST请求参数放入request body中，请不要将参数同时放入URL和request body中
+GET请求参数放入query Params中，POST请求参数放入request body中，请不要将参数同时放入query Params和request body中
 
 请求头信息请设置为：`Content-Type=application/x-www-form-urlencoded`
 
