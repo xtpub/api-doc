@@ -10,13 +10,17 @@ https://api.xt.com
 ```
 Spare:
 https://api.xt.pub
-https://api.xtvip.top
-https://api.xtvip.biz
 ```
+
+### Basic information of the interface
 
 Due to the reasons of high latency and poor stability, it is not recommend to access the XT API through a proxy.
 
+GET request parameters are put in query Params, POST request parameters are put in request body, please do not put parameters in query Params and request body at the same time
+
 The request header information is set to: `Content-Type=application/x-www-form-urlencoded`
+
+In addition to the parameters required by the interface itself, signature, which is the signature parameter, needs to be passed in the query Params or request body. The interface that does not need to pass the signature parameter will be additionally explained.
 <br/>
 
 ### Frequency limiting rules
@@ -51,9 +55,9 @@ Sort the parameter names according to the order of ASCII codes, and concatenate 
 
 Note that the value of nonce is a 13-bit millisecond number.
 
-Use the Secret Key obtained from the website to sign the HmacSHA256 parameter string generated above. 
+Use the Secret Key obtained from the website to sign the HmacSHA256 parameter string generated above.
 
-For example, the signature of the above parameters results: 
+For example, the signature of the above parameters results:
 
 `97b7b71741ca0aec6e0404a5b1c7cb2a78e7bd6c2a8088dbd84a20129dee4fe7`
 
@@ -82,6 +86,10 @@ Status code	| error information
 122	| Cancellation failed, order cancelled or completed
 123	| Cancellation failed, Unknown error, please try again later.
 124	| Cancellation failed, Operate too frequently
+200 | Success
+307 | AccessKey error
+308 | Sign error
+400 | Request error, Check whether the parameters are standardized
 404	| Others error warning
 <br/>
 ### Market data
@@ -170,7 +178,7 @@ GET /data/api/v1/getTicker
 
 >Request Parameter
 
-Parameter|Type|True or false|Default Value|Description	Ranges
+Parameter | Type | True or false |Default Value |Description | Ranges
 -|-|-|-|-|-
 market|string|true|N/A|Trading markets|btc_usdt, eth_usdt...
 
@@ -192,10 +200,10 @@ market|string|true|N/A|Trading markets|btc_usdt, eth_usdt...
 
 **Latest Ticker of all markets**
 ``
-    GET /data/api/v1/getTickers
+GET /data/api/v1/getTickers
 ``
 >Request Parameter
-    `None`
+`None`
 >Response data
 ```js
 {
@@ -225,11 +233,11 @@ market|string|true|N/A|Trading markets|btc_usdt, eth_usdt...
 
 **Market Depth data**
 ``
-    GET /data/api/v1/getDepth
+GET /data/api/v1/getDepth
 ``
 >Request Parameter
 
-Parameter|Type|True or false|Default value|Description	Ranges
+Parameter | Type | True or false | Default value |Description | Ranges
 -|-|-|-|-|-
 market|string|true|N/A|Trading markets|btc_usdt, eth_usdt...
 
@@ -239,7 +247,7 @@ market|string|true|N/A|Trading markets|btc_usdt, eth_usdt...
   "last": 11591.26,     // Latest transaction price
   "asks": [
     [
-      11594.80,
+      11594.80, 
       0.049472
     ],
     [
@@ -264,7 +272,7 @@ market|string|true|N/A|Trading markets|btc_usdt, eth_usdt...
 
 **Latest Market transactions record**
 ``
-    GET /data/api/v1/getTrades
+GET /data/api/v1/getTrades
 ``
 >Request Parameter
 
@@ -300,7 +308,7 @@ market|string|true|N/A|Trading markets|btc_usdt, eth_usdt...
 **Get server time (no signature required)**
 
 ``
-    GET /trade/api/v1/getServerTime
+GET /trade/api/v1/getServerTime
 ``
 >Request Parameter
 
@@ -322,11 +330,11 @@ market|string|true|N/A|Trading markets|btc_usdt, eth_usdt...
 **Get trading (spot) account assets**
 
 ``
-    GET /trade/api/v1/getBalance
+GET /trade/api/v1/getBalance
 ``
 >Request Parameter
 
-					
+
 Parameter|Type|True or false|Default value|Description|Ranges
 -|-|-|-|-|-
 accesskey|string|true|N/A|Access private key|
@@ -362,12 +370,12 @@ nonce|integer|true|N/A|13-bit milliseconds|
 **Get the account type(no signature required)**
 
 ``
-    GET /trade/api/v1/getAccounts
+GET /trade/api/v1/getAccounts
 ``
 >Request Parameter
 
 `None`
-    
+
 >Response data
 ```js
 // Fixed system account, which can be directly written into the program without obtaining dynamically
@@ -386,7 +394,7 @@ nonce|integer|true|N/A|13-bit milliseconds|
 **Get specific account assets**
 
 ``
-    GET /trade/api/v1/getFunds
+GET /trade/api/v1/getFunds
 ``
 >Request parameter
 
@@ -419,33 +427,6 @@ nonce|integer|true|N/A|"13-bit milliseconds
     }
   },
   "info": "success"
-}
-```
-<br/>
-
-**ransfer assets between accounts**
-
-
-``
-    POST /trade/api/v1/transfer
-``
->Request parameter
-
-Parameter|Type|True or false|Default value|Description|Ranges
--|-|-|-|-|-
-accesskey|string|true|N/A|Access private key|
-nonce|integer|true|N/A|13-bit milliseconds|
-from|integer|true|N/A|Account ID|Refer to getAccounts interface
-to|integer|true|N/A|Account ID|Refer to getAccounts interface
-amount|float|true|N/A|Amount|
-coin|string|true|N/A|Coin type|btc,eth,usdt...
-safePwd|string|true|N/A|Security password|
-
->Response data
-```js
-{
-	"code":200,
-	"info":"Succeeded"
 }
 ```
 <br/>
@@ -535,7 +516,7 @@ Please note that data is not involved in signing the JSON data itself, but STRIN
 **Cancel an order**
 
 ``
-    POST /trade/api/v1/cancel
+POST /trade/api/v1/cancel
 ``
 >Request parameter
 
@@ -558,7 +539,7 @@ id|integer|true|N/A|Order ID|
 **Cancel the Bulk Orders**
 
 ``
-    POST /trade/api/v1/batchCancel
+POST /trade/api/v1/batchCancel
 ``
 >Request parameter
 
@@ -607,7 +588,7 @@ Please note that data is not involved in signing the JSON data itself, but STRIN
 **Order information**
 
 ``
-    GET /trade/api/v1/getOrder
+GET /trade/api/v1/getOrder
 ``
 
 >Request parameter
@@ -644,7 +625,7 @@ id|integer|true|N/A|Order ID|
 **Get uncompleted Orders**
 
 ``
-    GET /trade/api/v1/getOpenOrders
+GET /trade/api/v1/getOpenOrders
 ``
 >Request parameter
 
@@ -696,7 +677,7 @@ pageSize|integer|false|10|Order quantities|[10-1000]
 **Get a batch of orders information**
 
 ``
-    GET /trade/api/v1/getBatchOrders
+GET /trade/api/v1/getBatchOrders
 ``
 >Request parameter
 
@@ -754,230 +735,11 @@ Please note that data is not involved in signing the JSON data itself, but STRIN
 ```
 <br/>
 
-**Get the deposit address**
 
-``
-    GET /trade/api/v1/getPayInAddress
-``
->Request parameter
 
-Parameter|Type|True or false|Default value|Description|Ranges
--|-|-|-|-|-
-accesskey|string|true|N/A|Access private key|
-nonce|integer|true|N/A|13-bit milliseconds|
-coin|string|true|N/A|coin name|btc,eth,ltc...
 
->Response data
-```js
-{
-	"code": 200,
-	"data": {
-		"record": [{
-			"chainName": "omni",    // Chain-type
-			"chain": "btc",         // Public chain coins
-			"address": "1EAEoYaXx93tKgvrfgpna19GPqC4J2Xcp7",  // deposit address
-			"coin": "USDT",         // current coins
-			"memo": ""		// Coins like EOS may need the Memo
-		}, 
-		{
-			"chainName": "usdt-erc20",
-			"chain": "eth",
-			"address": "0x8390b456fe03139ba402f45be9110a5fadf7e862",
-			"coin": "USDT",
-			"memo": ""
-		}]
-	},
-	"info": "success"
-}
 
-```
-<br/>
 
-**Get withdrawal address**
-
-``
-GET /trade/api/v1/getPayOutAddress
-``
-
->Request parameter
-
-Parameter|Type|True or false|Default value|Description|Ranges
--|-|-|-|-|-
-accesskey|string|true|N/A|Access private key|
-nonce|integer|true|N/A|13-bit milliseconds|
-coin|string|true|N/A|Coin name|btc,eth,ltc...
-page|integer|true|1|Pages|
-pageSize|integer|true|10|Quantity per page|
-
->Response data
-```js
-{
-	"code": 200,
-	"data": {
-		"record": [{
-			"chainName": "ERC-20",      // Public-chain name
-			"chain": "eth",             // Public chain coin
-			"address": "0x8390b456fe03139ba402f45be9110a5fadf7e862", // withdrawal address
-			"memo": "",    	    	    // Coins like EOS may need the Memo             
-			"coin": "usdt"              // current coins
-		}, {
-			"chainName": "omni",
-			"chain": "btc",
-			"address": "1EAEoYaXx93tKgvrfgpna19GPqC4J2Xcp7",
-			"memo": "",
-			"coin": "usdt"
-		}]
-	},
-	"info": "success"
-}
-```
-<br/>
-
-**Get Deposit Records**
-
-``
-GET /trade/api/v1/getPayInRecord
-``
->Request parameter
-
-Parameter|Type|True or false|Default value|Description|Ranges
--|-|-|-|-|-
-accesskey|string|true|N/A|Access private key|
-nonce|integer|true|N/A|13-bit milliseconds|
-coin|string|true|N/A|Coin name|btc,eth,ltc...
-page|integer|true|1|Pages|
-pageSize|integer|true|10|Quantity per page|
-
->Response data
-```js
-{
- 	"code": 200,
- 	"data": {
- 		"total": 1,
- 		"pageIndex": 1,
- 		"record": [{
- 			"chainName": "ERC-20",      // Public-chain name
- 			"amount": 0.001000000,      // Amount of Coins
- 			"chain": "eth",             // Public chain coin
- 			"address": "0x145e96ff8388e474df8c799fb433f103f42d9462",		// Coins with memo like EOS are separated by '_'
- 			"depth": 12,                // Number of confirmations
- 			"creatTime": 1563465915000,
- 			"manageTime": 1563466260000,
- 			"txHash": "0x4bcd1207e57dc96737d20198c8792c3340386e7f247571458d17671b7834ddd6", // Trading Hash
- 			"status": 2,                // 0, initial 1, failure 2, success 5, pending confirmation
- 			"coin": "usdt",             // current coins
- 			"innerTransfer": 0          // Whether the record of the internal addresses transfer 		
- 		}],
- 		"pageSize": 100
- 	},
- 	"info": "success"
- }
-```
-<br/>
-
-**Get withdrawal records**
-
-``
-    GET /trade/api/v1/getPayOutRecord
-``
->Request parameter
-
-Parameter|Type|True or false|Default value|Description|Ranges
--|-|-|-|-|-
-accesskey|string|true|N/A|Access private key|
-nonce|integer|true|N/A|13-bit milliseconds|
-coin|string|true|N/A|Coin name|btc,eth,ltc...
-page|integer|true|1|Pages|
-pageSize|integer|true|10|Quantity per page|
-
->Response data
-```js
-{
-	"code": 200,
-	"data": {
-		"record": [{
-			"chainName": "ERC-20",      // Public-chain name
-			"amount": 0.002000000,      // Amount of Coins
-			"chain": "eth",             // Public chain coin
-			"address": "0x8390b456fe03139ba402f45be9110a5fadf7e862", // Coins with memo like EOS are separated by '_'			
-            "creatTime": 1563513678000, // Withdrawal time
-			"fee": 0.001000000,         // Withdrawal fees
-			"manageTime": 1563513698000,// Processing time
-			"status": 4,			    //0, initial  1, failure 2, success 5, pending confirmation
-			"coin": "usdt",				// current coins			
-            "innerTransfer": 0			//Whether the record of the internal addresses transfer
-		}]
-	},
-	"info": "success"
-}
-```
-<br/>
-
-**Withdrawal configuration**
-
-``
-    GET /trade/api/v1/getWithdrawConfig
-``
->Request parameter
-
-Parameter|Type|True or false|Default value|Description|Ranges
--|-|-|-|-|-
-accesskey|string|true|N/A|Access private key|
-nonce|integer|true|N/A|13-bit milliseconds|
-
->Response data
-```js
-{
-  "code": 200,
-  "data": {
-      "btc": {
-          "minAmount": 0.01,    // Single minimum withdrawal amount
-          "maxAmount": 10      // Daily withdrawal limit
-      },
-      "eth": {
-          "minAmount": 0.1,
-          "maxAmount": 100
-      }
-  },
-  "info": "success"
-}
-```
-<br>
-
-**Withdrawal**
-
-``
-    GET /trade/api/v1/withdraw
-``
-
->Request parameter
-
-Parameter|Type|True or false|Default value|Description|Ranges
--|-|-|-|-|-
-accesskey|string|true|N/A|Access private key|
-nonce|integer|true|N/A|13-bit milliseconds|
-coin|string|true|N/A|Coin name|btc,eth,ltc...
-address|string|true|N/A|Withdrawal address|Only your certified addresses at XT are supported
-memo|string|false|N/A|memo|Withdrawal address & memo, like EOS
-amount|float|true|N/A|Withdrawal quantities|Cannot lower than the minimum withdrawal amount of the current coins
-innerTransfer|integer|false|0|Whether the internal addresses transfer, enjoy 0 fee|0、False 1、True
-safePwd|string|true|N/A|Security password|
-
->Response data
-```js
-{
-  "code": 200,
-  "data": {
-  	  "fees":0.001000000,
-  	  "amount":1,
-  	  "address":"0xb1878d51e4a951e566a8c1bd206264077d959169",
-  	  "id":1001,
-  	  "subTime":1565717647769
-  },
-  "info": "success"
-}
-```
-<br>
 
 
 
