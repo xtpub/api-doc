@@ -1,8 +1,8 @@
 ## README.md
 
 Welcome to XT API! You can use this API to get market data, trade, and manage your account.
-UBIEX provides flexible APIs to help users integrate UBIEX transaction quickly and efficiently into their applications.
-UBIEX supports both Rest API and WebSocket API.
+XT provides flexible APIs to help users integrate XT transaction quickly and efficiently into their applications.
+XT supports both Rest API and WebSocket API.
 It is recommended that developer use the Rest API when performing functions such as trading or withdrawal, and use the WebSocket API to obtain information such as market prices and trading depth.
 <br/>
 
@@ -28,7 +28,7 @@ All data of the WebSocket API is compressed by GZIP, then Base64.encode () is en
 
 ### Prompt message
 
-When the user's client Websocket connected to the UBIEX Websocket server, the server will periodically send a ping message to user (currently set as 5 seconds) and include a timestamp.
+When the user's client Websocket connected to the XT Websocket server, the server will periodically send a ping message to user (currently set as 5 seconds) and include a timestamp.
 After receiving this prompt message, the user should promptly return the pong message and include the same timestamp in the following format:
 
 ```js
@@ -43,7 +43,7 @@ However, after connecting to the server, the user can also send a message “pin
 
 ### Disconnect
 
-The user may disconnect by themselves or send a “close” message to the UBIEX Websocket server .
+The user may disconnect by themselves or send a “close” message to the XT Websocket server .
 
 
 
