@@ -11,12 +11,15 @@ https://api.xt.com
 https://api.xt.pub
 ```
 
+### 接口的基本信息
 
 鉴于延迟高和稳定性差等原因，不建议通过代理的方式访问API。
 
-GET请求参数放入URL中，POST请求参数放入body中
+GET请求参数放入query Params中，POST请求参数放入request body中，请不要将参数同时放入URL和request body中
 
 请求头信息请设置为：`Content-Type=application/x-www-form-urlencoded`
+
+除了接口本身所需的参数外，还需要在query Params 或 request body中传递 signature, 即签名参数，不需要传递签名参数的接口会额外说明。
 
 <br/>
 
@@ -90,6 +93,10 @@ API 访问密钥（accesskey）：您申请的 API Key 中的 Access Key。
 122 | 撤单失败，订单已取消或已完成
 123 | 撤单失败，未知异常请稍后再试
 124 | 撤单失败，操过频繁
+200 | 成功
+308 | 验签异常
+307 | AccessKey 异常
+400 | 请求异常，检查传参是否规范
 404 | 其他错误提示
 
 <br/>
