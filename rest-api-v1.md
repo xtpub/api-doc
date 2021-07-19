@@ -9,12 +9,12 @@ https://api.xt.com
 ```
 备用:
 https://api.xt.pub
-https://api.xtvip.top
-https://api.xtvip.biz
 ```
 
 
 鉴于延迟高和稳定性差等原因，不建议通过代理的方式访问API。
+
+GET请求参数放入URL中，POST请求参数放入body中
 
 请求头信息请设置为：`Content-Type=application/x-www-form-urlencoded`
 
@@ -99,7 +99,7 @@ API 访问密钥（accesskey）：您申请的 API Key 中的 Access Key。
 **交易市场配置**
 
 ``
-    GET /data/api/v1/getMarketConfig
+GET /data/api/v1/getMarketConfig
 ``
 
 >请求参数
@@ -139,7 +139,7 @@ API 访问密钥（accesskey）：您申请的 API Key 中的 Access Key。
 **K线数据**
 
 ``
-    GET /data/api/v1/getKLine
+GET /data/api/v1/getKLine
 ``
 
 >请求参数
@@ -174,7 +174,7 @@ since | integer | true | 0 | 时间条件，控制增量 | 第一次为0,之后�
 **聚合行情（Ticker）**
 
 ``
-    GET /data/api/v1/getTicker
+GET /data/api/v1/getTicker
 ``
 
 >请求参数
@@ -202,7 +202,7 @@ market | string | true | N/A | 交易市场 | btc_usdt, eth_usdt...
 **所有市场的最新 Ticker**
 
 ``
-    GET /data/api/v1/getTickers
+GET /data/api/v1/getTickers
 ``
 
 >请求参数
@@ -240,7 +240,7 @@ market | string | true | N/A | 交易市场 | btc_usdt, eth_usdt...
 **市场深度数据**
 
 ``
-    GET /data/api/v1/getDepth
+GET /data/api/v1/getDepth
 ``
 
 >请求参数
@@ -281,7 +281,7 @@ market | string | true | N/A | 交易市场 | btc_usdt, eth_usdt...
 **最近市场成交记录**
 
 ``
-    GET /data/api/v1/getTrades
+GET /data/api/v1/getTrades
 ``
 
 >请求参数
@@ -319,7 +319,7 @@ market | string | true | N/A | 交易市场 | btc_usdt, eth_usdt...
 **获取服务器时间(不需要签名)**
 
 ``
-    GET /trade/api/v1/getServerTime
+GET /trade/api/v1/getServerTime
 ``
 
 >请求参数
@@ -341,15 +341,15 @@ market | string | true | N/A | 交易市场 | btc_usdt, eth_usdt...
 **获取交易(现货)账户资产**
 
 ``
-    GET /trade/api/v1/getBalance
+GET /trade/api/v1/getBalance
 ``
 
 >请求参数
 
 参数 | 数据类型 | 是否必须 | 默认值 | 描述 | 取值范围  
 -|-|-|-|-|-
-accesskey | string | true | N/A | 访问密钥 | 
-nonce | integer | true | N/A | 13位毫秒数 | 
+accesskey | string | true | N/A | 访问密钥 |
+nonce | integer | true | N/A | 13位毫秒数 |
 
 >响应数据
 ```js
@@ -382,7 +382,7 @@ nonce | integer | true | N/A | 13位毫秒数 |
 **获取账户类型(不需要签名)**
 
 ``
-    GET /trade/api/v1/getAccounts
+GET /trade/api/v1/getAccounts
 ``
 
 >请求参数
@@ -409,16 +409,16 @@ nonce | integer | true | N/A | 13位毫秒数 |
 **获取指定账户资产**
 
 ``
-    GET /trade/api/v1/getFunds
+GET /trade/api/v1/getFunds
 ``
 
 >请求参数
 
 参数 | 数据类型 | 是否必须 | 默认值 | 描述 | 取值范围  
 -|-|-|-|-|-
-accesskey | string | true | N/A | 访问密钥 | 
+accesskey | string | true | N/A | 访问密钥 |
 account | integer | true | N/A | 账户ID | 参考getAccounts接口
-nonce | integer | true | N/A | 13位毫秒数 | 
+nonce | integer | true | N/A | 13位毫秒数 |
 
 >响应数据
 ```js
@@ -448,49 +448,21 @@ nonce | integer | true | N/A | 13位毫秒数 |
 
 <br/>
 
-**账户间资金划转**
-
-``
-    POST /trade/api/v1/transfer
-``
-
->请求参数
-
-参数 | 数据类型 | 是否必须 | 默认值 | 描述 | 取值范围  
--|-|-|-|-|-
-accesskey | string | true | N/A | 访问密钥 | 
-nonce | integer | true | N/A | 13位毫秒数 | 
-from | integer | true | N/A | 账户ID | 参考getAccounts接口
-to | integer | true | N/A | 账户ID | 参考getAccounts接口
-amount | float | true | N/A | 金额 | 
-coin | string | true | N/A | 币种 |btc,eth,usdt... 
-safePwd | string | true | N/A | 安全资金密码 | 
-
->响应数据
-```js
-{
-	"code":200,
-	"info":"Succeeded"
-}
-```
-
-<br/>
-
 **委托**
 
 ``
-    POST /trade/api/v1/order
+POST /trade/api/v1/order
 ``
 
 >请求参数
 
 参数 | 数据类型 | 是否必须 | 默认值 | 描述 | 取值范围  
 -|-|-|-|-|-
-accesskey | string | true | N/A | 访问密钥 | 
-nonce | integer | true | N/A | 13位毫秒数 | 
+accesskey | string | true | N/A | 访问密钥 |
+nonce | integer | true | N/A | 13位毫秒数 |
 market | string | true | N/A | 交易市场 | btc_usdt, eth_usdt...
-price | float | true | N/A | 委托价格 | 
-number | float | true | N/A | 委托数量 | 
+price | float | true | N/A | 委托价格 |
+number | float | true | N/A | 委托数量 |
 type | integer | true | N/A | 交易类型 | 1、买 0、卖
 entrustType | integer | true | N/A | 委托类型 | 0、限价，1、市价
 
@@ -510,17 +482,17 @@ entrustType | integer | true | N/A | 委托类型 | 0、限价，1、市价
 **批量委托**
 
 ``
-    POST /trade/api/v1/batchOrder
+POST /trade/api/v1/batchOrder
 ``
 
 >请求参数
 
 参数 | 数据类型 | 是否必须 | 默认值 | 描述 | 取值范围  
 -|-|-|-|-|-
-accesskey | string | true | N/A | 访问密钥 | 
-nonce | integer | true | N/A | 13位毫秒数 | 
+accesskey | string | true | N/A | 访问密钥 |
+nonce | integer | true | N/A | 13位毫秒数 |
 market | string | true | N/A | 交易市场 | btc_usdt, eth_usdt...
-data | string | true | N/A | 订单数据 | 
+data | string | true | N/A | 订单数据 |
 
 ```
 只支持限价委托，一次事务，要么都成功，要么都失败
@@ -565,15 +537,15 @@ data 是一个JSON数组，数组长度最大只支持100个，超出100的会�
 **撤单**
 
 ``
-    POST /trade/api/v1/cancel
+POST /trade/api/v1/cancel
 ``
 
 >请求参数
 
 参数 | 数据类型 | 是否必须 | 默认值 | 描述 | 取值范围  
 -|-|-|-|-|-
-accesskey | string | true | N/A | 访问密钥 | 
-nonce | integer | true | N/A | 13位毫秒数 | 
+accesskey | string | true | N/A | 访问密钥 |
+nonce | integer | true | N/A | 13位毫秒数 |
 market | string | true | N/A | 交易市场 | btc_usdt, eth_usdt...
 id | integer | true | N/A | 订单ID |
 
@@ -590,17 +562,17 @@ id | integer | true | N/A | 订单ID |
 **批量撤单**
 
 ``
-    POST /trade/api/v1/batchCancel
+POST /trade/api/v1/batchCancel
 ``
 
 >请求参数
 
 参数 | 数据类型 | 是否必须 | 默认值 | 描述 | 取值范围  
 -|-|-|-|-|-
-accesskey | string | true | N/A | 访问密钥 | 
-nonce | integer | true | N/A | 13位毫秒数 | 
+accesskey | string | true | N/A | 访问密钥 |
+nonce | integer | true | N/A | 13位毫秒数 |
 market | string | true | N/A | 交易市场 | btc_usdt, eth_usdt...
-data | string | true | N/A | 订单数据 | 
+data | string | true | N/A | 订单数据 |
 
 ```
 data 是一个JSON数组，数组长度最大只支持100个，超出100的会被忽略100个以外的元素，数组元素格式为订单ID，如：
@@ -642,15 +614,15 @@ data 是一个JSON数组，数组长度最大只支持100个，超出100的会�
 **订单信息**
 
 ``
-    GET /trade/api/v1/getOrder
+GET /trade/api/v1/getOrder
 ``
 
 >请求参数
 
 参数 | 数据类型 | 是否必须 | 默认值 | 描述 | 取值范围  
 -|-|-|-|-|-
-accesskey | string | true | N/A | 访问密钥 | 
-nonce | integer | true | N/A | 13位毫秒数 | 
+accesskey | string | true | N/A | 访问密钥 |
+nonce | integer | true | N/A | 13位毫秒数 |
 market | string | true | N/A | 交易市场 | btc_usdt, eth_usdt...
 id | integer | true | N/A | 订单ID |
 
@@ -680,17 +652,17 @@ id | integer | true | N/A | 订单ID |
 **获取未完成订单**
 
 ``
-    GET /trade/api/v1/getOpenOrders
+GET /trade/api/v1/getOpenOrders
 ``
 
 >请求参数
 
 参数 | 数据类型 | 是否必须 | 默认值 | 描述 | 取值范围  
 -|-|-|-|-|-
-accesskey | string | true | N/A | 访问密钥 | 
-nonce | integer | true | N/A | 13位毫秒数 | 
+accesskey | string | true | N/A | 访问密钥 |
+nonce | integer | true | N/A | 13位毫秒数 |
 market | string | true | N/A | 交易市场 | btc_usdt, eth_usdt...
-page | integer | false | 1 | 页码 | 
+page | integer | false | 1 | 页码 |
 pageSize | integer | false | 10 | 订单数量 | [10-1000]
 
 >响应数据
@@ -734,17 +706,17 @@ pageSize | integer | false | 10 | 订单数量 | [10-1000]
 **获取多个订单信息**
 
 ``
-    GET /trade/api/v1/getBatchOrders
+GET /trade/api/v1/getBatchOrders
 ``
 
 >请求参数
 
 参数 | 数据类型 | 是否必须 | 默认值 | 描述 | 取值范围  
 -|-|-|-|-|-
-accesskey | string | true | N/A | 访问密钥 | 
-nonce | integer | true | N/A | 13位毫秒数 | 
+accesskey | string | true | N/A | 访问密钥 |
+nonce | integer | true | N/A | 13位毫秒数 |
 market | string | true | N/A | 交易市场 | btc_usdt, eth_usdt...
-data | string | true | N/A | 订单数据 | 
+data | string | true | N/A | 订单数据 |
 
 ```
 data 是一个JSON数组，数组长度最大只支持100个，超出100的会被忽略100个以外的元素，数组元素格式为订单ID，如：
@@ -793,240 +765,3 @@ data 是一个JSON数组，数组长度最大只支持100个，超出100的会�
 ```
 
 <br/>
-
-**获取充值地址**
-
-``
-    GET /trade/api/v1/getPayInAddress
-``
-
->请求参数
-
-参数 | 数据类型 | 是否必须 | 默认值 | 描述 | 取值范围  
--|-|-|-|-|-
-accesskey | string | true | N/A | 访问密钥 | 
-nonce | integer | true | N/A | 13位毫秒数 | 
-coin | string | true | N/A | 币种名称 | btc,eth,ltc...
-
->响应数据
-```js
-{
-	"code": 200,
-	"data": {
-		"record": [{
-			"chainName": "omni",    //链类型
-			"chain": "btc",         //主链币种
-			"address": "1EAEoYaXx93tKgvrfgpna19GPqC4J2Xcp7",  //充值地址
-			"coin": "USDT",         //当前币种
-			"memo": ""				//EOS等币种可能会存在memo
-		}, 
-		{
-			"chainName": "usdt-erc20",
-			"chain": "eth",
-			"address": "0x8390b456fe03139ba402f45be9110a5fadf7e862",
-			"coin": "USDT",
-			"memo": ""
-		}]
-	},
-	"info": "success"
-}
-```
-
-<br/>
-
-**获取提现地址**
-
-``
-    GET /trade/api/v1/getPayOutAddress
-``
-
->请求参数
-
-参数 | 数据类型 | 是否必须 | 默认值 | 描述 | 取值范围  
--|-|-|-|-|-
-accesskey | string | true | N/A | 访问密钥 | 
-nonce | integer | true | N/A | 13位毫秒数 | 
-coin | string | true | N/A | 币种名称 | btc,eth,ltc...
-page | integer | true | 1 | 分页页码 | 
-pageSize | integer | true | 10 | 每页数量 | 
-
-
->响应数据
-```js
-{
-	"code": 200,
-	"data": {
-		"record": [{
-			"chainName": "ERC-20",      //主链名称
-			"chain": "eth",             //主链币种
-			"address": "0x8390b456fe03139ba402f45be9110a5fadf7e862", //提现地址
-			"memo": "",    				//EOS等币种可能会存在memo             
-			"coin": "usdt"              //当前币种
-		}, {
-			"chainName": "omni",
-			"chain": "btc",
-			"address": "1EAEoYaXx93tKgvrfgpna19GPqC4J2Xcp7",
-			"memo": "",
-			"coin": "usdt"
-		}]
-	},
-	"info": "success"
-}
-```
-
-<br/>
-
-**获取充值记录**
-
-``
-    GET /trade/api/v1/getPayInRecord
-``
-
->请求参数
-
-参数 | 数据类型 | 是否必须 | 默认值 | 描述 | 取值范围  
--|-|-|-|-|-
-accesskey | string | true | N/A | 访问密钥 | 
-nonce | integer | true | N/A | 13位毫秒数 | 
-coin | string | true | N/A | 币种名称 | btc,eth,ltc...
-page | integer | true | 1 | 分页页码 | 
-pageSize | integer | true | 10 | 每页数量 | 
-
-
->响应数据
-```js
-{
- 	"code": 200,
- 	"data": {
- 		"total": 1,
- 		"pageIndex": 1,
- 		"record": [{
- 			"chainName": "ERC-20",      //主链名称
- 			"amount": 0.001000000,      //币种数量
- 			"chain": "eth",             //主链币种
- 			"address": "0x145e96ff8388e474df8c799fb433f103f42d9462",		//EOS等币种存在memo时用'_'隔开
- 			"depth": 12,                //确认数
- 			"creatTime": 1563465915000,
- 			"manageTime": 1563466260000,
- 			"txHash": "0x4bcd1207e57dc96737d20198c8792c3340386e7f247571458d17671b7834ddd6", //交易哈希
- 			"status": 2,       			//0、初始 1、失败 2、成功 5、待确认
- 			"coin": "usdt",             //当前币种
- 			"innerTransfer": 0			//是否是内账地址转账的记录
- 		}],
- 		"pageSize": 100
- 	},
- 	"info": "success"
- }
-```
-
-<br/>
-
-**获取提现记录**
-
-``
-    GET /trade/api/v1/getPayOutRecord
-``
-
->请求参数
-
-参数 | 数据类型 | 是否必须 | 默认值 | 描述 | 取值范围  
--|-|-|-|-|-
-accesskey | string | true | N/A | 访问密钥 | 
-nonce | integer | true | N/A | 13位毫秒数 | 
-coin | string | true | N/A | 币种名称 | btc,eth,ltc...
-page | integer | true | 1 | 分页页码 | 
-pageSize | integer | true | 10 | 每页数量 | 
-
-
->响应数据
-```js
-{
-	"code": 200,
-	"data": {
-		"record": [{
-			"chainName": "ERC-20",      //主链名称
-			"amount": 0.002000000,      //币种数量
-			"chain": "eth",             //主链币种
-			"address": "0x8390b456fe03139ba402f45be9110a5fadf7e862",    //EOS等币种存在memo时用'_'隔开
-			"creatTime": 1563513678000, //提币时间
-			"fee": 0.001000000,         //手续费
-			"manageTime": 1563513698000,//处理时间
-			"status": 4,				    //0、初始 1、失败/取消 2、成功 4、审核中 5、待确认
-			"coin": "usdt",				//当前币种
-			"innerTransfer": 0			//是否是内账地址转账的记录
-		}]
-	},
-	"info": "success"
-}
-```
-
-<br/>
-
-**提现配置**
-
-``
-    GET /trade/api/v1/getWithdrawConfig
-``
-
->请求参数
-
-参数 | 数据类型 | 是否必须 | 默认值 | 描述 | 取值范围  
--|-|-|-|-|-
-accesskey | string | true | N/A | 访问密钥 | 
-nonce | integer | true | N/A | 13位毫秒数 | 
-
-
->响应数据
-```js
-{
-  "code": 200,
-  "data": {
-      "btc": {
-          "minAmount": 0.01,    // 单次最小提现数量
-          "maxAmount": 10      // 日提币额度
-      },
-      "eth": {
-          "minAmount": 0.1,
-          "maxAmount": 100
-      }
-  },
-  "info": "success"
-}
-```
-
-<br/>
-
-**提现**
-
-``
-    GET /trade/api/v1/withdraw
-``
-
->请求参数
-
-参数 | 数据类型 | 是否必须 | 默认值 | 描述 | 取值范围  
--|-|-|-|-|-
-accesskey | string | true | N/A | 访问密钥 | 
-nonce | integer | true | N/A | 13位毫秒数 | 
-coin | string | true | N/A | 币种名称 | btc,eth,ltc...
-address | string | true | N/A | 提现地址 | 仅支持您在XT的认证地址
-memo | string | false | N/A | memo | 提现地址memo，如EOS等
-amount | float | true | N/A | 提现数量 | 不能低于当前币种最低提现额度
-innerTransfer | integer | false | 0 | 是否内部地址转账，享受0手续费 | 0、否 1、是
-safePwd | string | true | N/A | 安全密码 | 
-
-
->响应数据
-```js
-{
-  "code": 200,
-  "data": {
-  	  "fees":0.001000000,
-  	  "amount":1,
-  	  "address":"0xb1878d51e4a951e566a8c1bd206264077d959169",
-  	  "id":1001,
-  	  "subTime":1565717647769
-  },
-  "info": "success"
-}
-```
