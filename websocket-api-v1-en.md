@@ -1,6 +1,6 @@
 ## README.md
 
-Welcome to UBIEX API! You can use this API to get market data, trade, and manage your account.
+Welcome to XT API! You can use this API to get market data, trade, and manage your account.
 UBIEX provides flexible APIs to help users integrate UBIEX transaction quickly and efficiently into their applications.
 UBIEX supports both Rest API and WebSocket API.
 It is recommended that developer use the Rest API when performing functions such as trading or withdrawal, and use the WebSocket API to obtain information such as market prices and trading depth.
