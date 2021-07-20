@@ -145,7 +145,7 @@ GET /data/api/v1/getMarketConfig
 
 Parameter | Type | True or false | Default Value | Description | Ranges
 -|-|-|-|-|-
-market | string	 | true | N/A | Trading market | btc_usdt, eth_usdt...
+market | string	 | true | N/A | Market pair | btc_usdt, eth_usdt...
 type | string | true | N/A | Kline type | 1min,5min,15min,30min,1hour,6hour,1day,7day,30day
 since | integer | true | 0 | Time condition. Control increment | The first time is 0, after that follow the value of the since
 
@@ -180,7 +180,7 @@ GET /data/api/v1/getTicker
 
 Parameter | Type | True or false |Default Value |Description | Ranges
 -|-|-|-|-|-
-market|string|true|N/A|Trading markets|btc_usdt, eth_usdt...
+market|string|true|N/A|Market pair|btc_usdt, eth_usdt...
 
 >Response data
 
@@ -239,7 +239,7 @@ GET /data/api/v1/getDepth
 
 Parameter | Type | True or false | Default value |Description | Ranges
 -|-|-|-|-|-
-market|string|true|N/A|Trading markets|btc_usdt, eth_usdt...
+market|string|true|N/A|Market pair|btc_usdt, eth_usdt...
 
 >Response data
 ```js
@@ -278,7 +278,7 @@ GET /data/api/v1/getTrades
 
 Parameter|Type|True or false|Default value|Description|Ranges
 -|-|-|-|-|-
-market|string|true|N/A|Trading markets|btc_usdt, eth_usdt...
+market|string|true|N/A|Market pair|btc_usdt, eth_usdt...
 
 >Response data
 ```js
@@ -442,7 +442,7 @@ Parameter|Type|True or false|Default value|Description|Ranges
 -|-|-|-|-|-
 accesskey|string|true|N/A|Access private key|
 nonce|integer|true|N/A|13-bit milliseconds|
-market|string|true|N/A|Trading markets|btc_usdt, eth_usdt...
+market|string|true|N/A|Market pair|btc_usdt, eth_usdt...
 price|float|true|N/A|Order Price|
 number|float|true|N/A|Order quantity|
 type|integer|true|N/A|Trading type|1, buy, 0 sell
@@ -472,7 +472,7 @@ Parameter|Type|True or false|Default value|Description|Ranges
 -|-|-|-|-|-
 accesskey|string|true|N/A|Access private key|
 nonce|integer|true|N/A|13-bit milliseconds|
-market|string|true|N/A|Trading market|btc_usdt, eth_usdt...
+market|string|true|N/A|Market pair|btc_usdt, eth_usdt...
 data|string|true|N/A|Order data|
 
 ```js
@@ -524,7 +524,7 @@ Parameter|Type|True or false|Default value|Description|Ranges
 -|-|-|-|-|-
 accesskey|string|true|N/A|Access private key|
 nonce|integer|true|N/A|13-bit milliseconds|
-market|string|true|N/A|Trading market|btc_usdt, eth_usdt...
+market|string|true|N/A|Market pair|btc_usdt, eth_usdt...
 id|integer|true|N/A|Order ID|
 
 >Response data
@@ -547,7 +547,7 @@ Parameter|Type|True or false|Default value|Description|Ranges
 -|-|-|-|-|-
 accesskey|string|true|N/A|Access private key|
 nonce|integer|true|N/A|13-bit milliseconds|
-market|string|true|N/A|Trading market|btc_usdt, eth_usdt...
+market|string|true|N/A|Market pair|btc_usdt, eth_usdt...
 data|string|true|N/A|Order data|
 
 ```
@@ -597,7 +597,7 @@ Parameter|Type|True or false|Default value|Description|Ranges
 -|-|-|-|-|-
 accesskey|string|true|N/A|Access private key|
 nonce|integer|true|N/A|13-bit milliseconds|
-market|string|true|N/A|Trading market|btc_usdt, eth_usdt...
+market|string|true|N/A|Market pair|btc_usdt, eth_usdt...
 id|integer|true|N/A|Order ID|
 
 >Response data
@@ -633,7 +633,7 @@ Parameter|Type|True or false|Default value|Description|Ranges
 -|-|-|-|-|-
 accesskey|string|true|N/A|Access private key|
 nonce|integer|true|N/A|13-bit milliseconds |
-market|string|true|N/A|Trading market|btc_usdt, eth_usdt...
+market|string|true|N/A|Market pair|btc_usdt, eth_usdt...
 page|integer|false|1|page number|
 pageSize|integer|false|10|Order quantities|[10-1000]
 
@@ -685,7 +685,7 @@ Parameter|Type|True or false|Default value|Description|Ranges
 -|-|-|-|-|-
 accesskey|string|true|N/A|Access private key|
 nonce|integer|true|N/A|13-bit milliseconds|
-market|string|true|N/A|Trading market|btc_usdt, eth_usdt...
+market|string|true|N/A|Market pair|btc_usdt, eth_usdt...
 data|string|true|N/A|Order data|
 
 ```
