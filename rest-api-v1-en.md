@@ -92,7 +92,9 @@ Status code	| error information
 400 | Request error, Check whether the parameters are standardized
 404	| Others error warning
 <br/>
-### Market data
+
+### Market data （No signature required）
+
 **Trading market configuration**
 
 ``
@@ -138,9 +140,10 @@ GET /data/api/v1/getMarketConfig
 
 **Kline/Candlestick data**
 
-```
-    GET /data/api/v1/getKLine
-```
+``
+GET /data/api/v1/getKLine
+``
+
 >Request Parameter
 
 Parameter | Type | True or false | Default Value | Description | Ranges
@@ -199,6 +202,7 @@ market|string|true|N/A|Market pair|btc_usdt, eth_usdt...
 <br/>
 
 **Latest Ticker of all markets**
+
 ``
 GET /data/api/v1/getTickers
 ``
@@ -232,6 +236,7 @@ GET /data/api/v1/getTickers
 <br/>
 
 **Market Depth data**
+
 ``
 GET /data/api/v1/getDepth
 ``
@@ -271,6 +276,7 @@ market|string|true|N/A|Market pair|btc_usdt, eth_usdt...
 <br/>
 
 **Latest Market transactions record**
+
 ``
 GET /data/api/v1/getTrades
 ``
@@ -303,7 +309,7 @@ market|string|true|N/A|Market pair|btc_usdt, eth_usdt...
 <br/>
 <br/>
 
-###Trading API
+### Trading API
 
 **Get server time (no signature required)**
 
