@@ -24,7 +24,7 @@ WebSocket API 的所有数据都 GZIP 压缩之后再进行 Base64.encode() 编�
 ### 心跳消息
 
 
-当用户的Websocket客户端连接到Ubiex Websocket服务器后，服务器会定期（当前设为5秒）向其发送ping消息并包含一个时间戳，
+当用户的Websocket客户端连接到XT Websocket服务器后，服务器会定期（当前设为5秒）向其发送ping消息并包含一个时间戳，
 
 当用户接收到此心跳消息后，应及时返回pong消息并包含同一时间戳，格式如：
 
@@ -42,7 +42,7 @@ WebSocket API 的所有数据都 GZIP 压缩之后再进行 Base64.encode() 编�
 
 ### 断开连接
 
-用户主动断开或者主动向Ubiex Websocket服务器发送消息`close`；
+用户主动断开或者主动向XT Websocket服务器发送消息`close`；
 
 <br/>
 
