@@ -17,8 +17,6 @@ wss://xtsocket.xt.com/websocket
 ```
 Spare:
 wss://xtsocket.xt.pub/websocket
-wss://xtsocket.xtvip.top/websocket
-wss://xtsocket.xtvip.biz/websocket
 ```
 
 
