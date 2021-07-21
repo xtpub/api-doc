@@ -9,8 +9,6 @@ wss://xtsocket.xt.com/websocket
 ```
 备用:
 wss://xtsocket.xt.pub/websocket
-wss://xtsocket.xtvip.top/websocket
-wss://xtsocket.xtvip.biz/websocket
 ```
 
 
