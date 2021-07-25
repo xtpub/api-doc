@@ -776,3 +776,51 @@ data 是一个JSON数组，数组长度最大只支持100个，超出100的会�
 ```
 
 <br/>
+
+
+**获取成交记录**
+
+``
+GET /trade/api/v1/myTrades
+``
+
+>请求参数
+
+参数 | 数据类型 | 是否必须 | 默认值 | 描述 | 取值范围  
+-|-|-|-|-|-
+accesskey | string | true | N/A | 访问密钥 |
+nonce | integer | true | N/A | 13位毫秒数 |
+market | string | true | N/A | 交易市场 | btc_usdt, eth_usdt...
+fromId | string | false | N/A | 最后一笔成交ID |
+limit | string | false | N/A | 每页大小 |
+startTime | integer | false | N/A | 开始时间，13位毫秒数 |
+endTime | integer | false | N/A | 截止时间，13位毫秒数 |
+
+```
+
+```
+
+>响应数据
+```js
+{
+    "code": 200,
+    "data": [
+        {
+            "tradeId": "6821734611983271937",   // 成交ID，翻页时，提供此ID
+            "orderId": "6821734611950127105",   // 订单ID
+            "tradeTime": 1626428273000,         //成交时间
+            "tradePrice": "10.3998",            // 成交价格
+            "tradeAmount": "1",                 // 成交数量
+            "tradeValue": "10.3998",            // 成交金额
+            "orderType": "sell",                // 订单类型[sell=卖;buy=买]
+            "orderAction": "market",            // [limit=现价;market=市价]
+            "orderSystem": "spot",              // [spot=现货;lever=杠杆]
+            "fee": "0.01663968",                // 手续费
+            "takerMaker": "taker"               // [taker、maker]
+        }
+    ],
+    "info": "操作成功"
+}
+```
+
+<br/>
