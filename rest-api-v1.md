@@ -791,8 +791,8 @@ GET /trade/api/v1/myTrades
 accesskey | string | true | N/A | 访问密钥 |
 nonce | integer | true | N/A | 13位毫秒数 |
 market | string | true | N/A | 交易市场 | btc_usdt, eth_usdt...
-fromId | string | false | N/A | 最后一笔成交ID |
-limit | string | false | N/A | 每页大小 |
+fromId | string | false | N/A | 最后一笔成交ID，往后翻页时提供 |
+limit | integer | false | N/A | 每页大小,默认200 |
 startTime | integer | false | N/A | 开始时间，13位毫秒数 |
 endTime | integer | false | N/A | 截止时间，13位毫秒数 |
 
