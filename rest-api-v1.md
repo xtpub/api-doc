@@ -806,15 +806,15 @@ endTime | integer | false | N/A | 截止时间，13位毫秒数 |
     "code": 200,
     "data": [
         {
-            "tradeId": "6821734611983271937",   // 成交ID，翻页时，提供此ID
+            "id": "6821734611983271937",        // 成交ID，翻页时，提供此ID
             "orderId": "6821734611950127105",   // 订单ID
-            "tradeTime": 1626428273000,         //成交时间
-            "tradePrice": "10.3998",            // 成交价格
-            "tradeAmount": "1",                 // 成交数量
-            "tradeValue": "10.3998",            // 成交金额
-            "orderType": "sell",                // 订单类型[sell=卖;buy=买]
-            "orderAction": "market",            // [limit=现价;market=市价]
-            "orderSystem": "spot",              // [spot=现货;lever=杠杆]
+            "time": 1626428273000,              //成交时间
+            "price": "10.3998",                 // 成交价格
+            "amount": "1",                      // 成交数量
+            "value": "10.3998",                 // 成交金额
+            "type": 1",                         // 类型[0=卖;1=买]
+            "entrustType": 1,                   // [0=现价;1=市价]
+            "isLever": 0,                       // 是否杠杆[1=是;0=否]
             "fee": "0.01663968",                // 手续费
             "takerMaker": "taker"               // [taker、maker]
         }
