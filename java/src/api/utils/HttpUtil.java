@@ -38,14 +38,15 @@ public class HttpUtil {
 
 	private static final String DEFAULT_CHARSET = "UTF-8";
 	private static Logger log = Logger.getLogger(HttpUtil.class.getName());
-	private static final int CONNECT_TIME_OUT = 5000; // 设置连接超时
-	private static final int SOCKET_TIME_OUT = 10000; // 设置读取超时
+	private static final int CONNECT_TIME_OUT = 5000; // 设置连接超时(en:Set connection timeout)
+	private static final int SOCKET_TIME_OUT = 10000; // 设置读取超时(en:Set read timeout)
 
 	public static String post(String url, Map<String, Object> params) {
 		String result = null;
 		CloseableHttpClient httpClient = HttpClientBuilder.create().build();
 		HttpPost httpPost = new HttpPost(url);
-		// 设置客户端请求的头参数getParams已经过时,现在用requestConfig对象替换
+		// zh 设置客户端请求的头参数getParams已经过时,现在用requestConfig对象替换
+		// en:Set the header parameter getParams of the client request is obsolete, now replace it with the requestConfig object
 		httpPost.setConfig(getRequestConfig());
 		try {
 			httpPost.setHeader("User-Agent",
@@ -65,7 +66,7 @@ public class HttpUtil {
 			HttpResponse httpResponse = httpClient.execute(httpPost);
 			HttpEntity httpEntity = httpResponse.getEntity();
 			if (httpEntity != null) {
-				// 按指定编码转换结果实体为String类型
+				// 按指定编码转换结果实体为String类型(en:Convert the result entity to String type according to the specified encoding)
 				result = EntityUtils.toString(httpEntity, DEFAULT_CHARSET);
 				EntityUtils.consume(httpEntity);
 			}
@@ -93,7 +94,8 @@ public class HttpUtil {
 		CloseableHttpClient httpClient = HttpClientBuilder.create().build();
 		HttpGet httpGet = new HttpGet(url);
 		try {
-			// 设置客户端请求的头参数getParams已经过时,现在用requestConfig对象替换
+			// zh 设置客户端请求的头参数getParams已经过时,现在用requestConfig对象替换
+			// en:Set the header parameter getParams of the client request is obsolete, now replace it with the requestConfig object
 			httpGet.setConfig(getRequestConfig());
 			httpGet.setHeader("User-Agent",
 					"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36");
@@ -104,12 +106,12 @@ public class HttpUtil {
 			HttpResponse httpResponse = httpClient.execute(httpGet);
 			HttpEntity httpEntity = httpResponse.getEntity();
 			if (httpEntity != null) {
-				// 按指定编码转换结果实体为String类型
+				// 按指定编码转换结果实体为String类型(en:Convert the result entity to String type according to the specified encoding)
 				result = EntityUtils.toString(httpEntity, "UTF-8");
 				EntityUtils.consume(httpEntity);
 			}
 		} catch (Exception e) {
-			log.info("连接地址：" + url + "不可用！！！");
+			log.info("The connection address " + url + " is not available.");
 			e.printStackTrace();
 		} finally {
 			try {
@@ -160,12 +162,13 @@ public class HttpUtil {
 	public static CloseableHttpClient createSSLInsecureClient() {
 		try {
 			SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(null, new TrustStrategy() {
-				// 默认信任所有证书
+				// 默认信任所有证书(en:Trust all certificates by default)
 				public boolean isTrusted(X509Certificate[] arg0, String arg1) throws CertificateException {
 					return true;
 				}
 			}).build();
-			// AllowAllHostnameVerifier: 这种方式不对主机名进行验证，验证功能被关闭，是个空操作(域名验证)
+			// zh AllowAllHostnameVerifier: 这种方式不对主机名进行验证，验证功能被关闭，是个空操作(域名验证)
+			// en This method does not verify the host name, the verification function is turned off, it is a no-op (domain name verification)
 			SSLConnectionSocketFactory sslcsf = new SSLConnectionSocketFactory(sslContext,
 					SSLConnectionSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
 			return HttpClients.custom().setSSLSocketFactory(sslcsf).build();
@@ -176,7 +179,7 @@ public class HttpUtil {
 		} catch (KeyStoreException e) {
 			e.printStackTrace();
 		}
-		// 如果创建失败，就创建一个默认的Http的连接
+		// 如果创建失败，就创建一个默认的Http的连接(en:If the creation fails, create a default Http connection)
 		return HttpClients.createDefault();
 	}
 
@@ -197,7 +200,7 @@ class SSLClient {
 	public static CloseableHttpClient createSSLClientDefault() {
 		try {
 			SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(null, new TrustStrategy() {
-				// 信任所有
+				// 默认信任所有证书(en:Trust all certificates by default)
 				public boolean isTrusted(X509Certificate[] chain, String authType) throws CertificateException {
 					return true;
 				}

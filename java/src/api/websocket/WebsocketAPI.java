@@ -26,7 +26,7 @@ public class WebsocketAPI {
 			return;
 		}
 		
-		// 订阅
+		// 订阅(en:Subscribe)
 		JSONObject subscribe = new JSONObject();
 		subscribe.put("channel", "ex_depth_data");
 		subscribe.put("market", "btc_usdt");
@@ -40,14 +40,14 @@ public class WebsocketAPI {
 			e.printStackTrace();
 		}
 		
-		// 取消订阅
+		// 取消订阅(en:Unsubscribe)
 		JSONObject unsubscribe = new JSONObject();
 		unsubscribe.put("channel", "ex_depth_data");
 		unsubscribe.put("market", "btc_usdt");
 		unsubscribe.put("event", "removeChannel");
 		api.send(unsubscribe.toJSONString());
 		
-		// 关闭
+		// 关闭(en:close)
 		api.send("close");
 	}
 }

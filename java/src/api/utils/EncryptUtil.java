@@ -52,7 +52,8 @@ public class EncryptUtil {
 	}
 
 	/***
-	 * 对应python里面的hmac.new(API_SECRET, msg=message, digestmod=hashlib.sha256).hexdigest().upper() 
+	 * zh hmacSha256加密算法,对应python里面的hmac.new(API_SECRET, msg=message, digestmod=hashlib.sha256).hexdigest().upper()
+	 * en hmacSha256 encryption algorithm,Corresponding to hmac.new(API_SECRET, msg=message, digestmod=hashlib.sha256).hexdigest().upper() in python
 	 * @param key
 	 * @param value
 	 * @return
@@ -82,7 +83,8 @@ public class EncryptUtil {
 	}
 
 	/***
-	 * MD5加密
+	 * zh MD5加密
+	 * en MD5 encryption
 	 * @param string
 	 * @return
 	 */
@@ -91,7 +93,8 @@ public class EncryptUtil {
 	}
 
 	/***
-	 * sha-1散列加密
+	 * zh sha-1散列加密
+	 * en sha-1 hash encryption
 	 * @param string
 	 * @return
 	 */
@@ -100,7 +103,8 @@ public class EncryptUtil {
 	}
 
 	/***
-	 * sha-256散列加密
+	 * zh sha-256散列加密
+	 * en sha-256 hash encryption
 	 * @param string
 	 * @return
 	 */
@@ -109,7 +113,8 @@ public class EncryptUtil {
 	}
 
 	/***
-	 * sha-512散列加密
+	 * zh sha-512散列加密
+	 * en sha-512 hash encryption
 	 * @param string
 	 * @return
 	 */
@@ -118,7 +123,8 @@ public class EncryptUtil {
 	}
 
 	/**
-	 * 通用加密方法
+	 * zh 通用加密方法
+	 * en Common encryption method
 	 * @param aValue
 	 * @param algorithm
 	 * @return
@@ -155,14 +161,8 @@ public class EncryptUtil {
 	}
 
 	/**
-	 * 生成签名消息
-	 * @param aValue  要签名的字符串
-	 * @param aKey  签名密钥
-	 * @return
-	 */
-
-	/**
-	 *
+	 * zh 生成签名
+	 * en Generate signature
 	 * @param args
 	 * @param key
 	 * @return
@@ -179,7 +179,8 @@ public class EncryptUtil {
 	}
 
 	/**
-	 * SHA加密
+	 * zh SHA加密
+	 * en SHA encryption
 	 * @param aValue
 	 * @return
 	 */
