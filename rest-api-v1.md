@@ -68,6 +68,14 @@ API 访问密钥（accesskey）：您申请的 API Key 中的 Access Key。
 
 <br/>
 
+### API Key申请步骤
+
+1.访问官网，登录账号<br/>
+2.鼠标移动到右上角账号位置，选择api管理，进入申请API Key页面<br/>
+3.填写好备注、白名单、api访问权限、安全密码以及动态验证码即可生成AccessKey和SecretKey<br/>
+
+<br/>
+
 ### 返回格式
 
 所有的接口返回都是JSON格式。

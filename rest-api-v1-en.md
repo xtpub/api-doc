@@ -64,6 +64,12 @@ For example, the signature of the above parameters results:
 Finally, the signature is assigned to the parameter name signature and submitted to the server.
 <br/>
 
+### How to Apply for API Key
+
+step 1: Visit the official website and login to your account.<br/>
+step 2:	Click the account on the right side, select API management, and enter the API Key application page.<br/>
+step 3:	Fill in remarks, whitelist, API access rights, security password and dynamic verification code to generate AccessKey and SecretKey.<br/>
+
 ### Return format
 All interfaces’ returns are in JSON format.
 <br/>
