@@ -747,7 +747,46 @@ Please note that data is not involved in signing the JSON data itself, but STRIN
 ```
 <br/>
 
+**Get transaction records**
 
+``
+GET /trade/api/v1/myTrades
+``
+>Request parameter
+
+Parameter|Type|True or false|Default value|Description|Ranges
+-|-|-|-|-|-
+accesskey|string|true|N/A|Access private key|
+nonce|integer|true|N/A|13-bit milliseconds|
+market|string|true|N/A|Market pair|btc_usdt, eth_usdt...
+fromId|string|false|N/A|Last transaction ID, provided when turning back pages|
+limit|integer|false|N/A|The size of each page, default 200|
+startTime|integer|false|N/A|Start time, milliseconds|
+endTime|integer|false|N/A|End time, milliseconds|
+
+>Response data
+```js
+{
+    "code": 200,
+    "data": [
+        {
+            "id": "6821734611983271937",        //Trade ID, When turning the page, provide this ID
+            "orderId": "6821734611950127105",
+            "time": 1626428273000,            
+            "price": "10.3998",
+            "amount": "1",
+            "value": "10.3998",
+            "type": 1",                         // 0:sell 1:buy
+            "entrustType": 1,                   // 0:limit price 1:market price
+            "isLever": 0,                       // Whether to trade with leverage [1 yes; 0 no]
+            "fee": "0.01663968",
+            "takerMaker": "taker"               // [taker、maker]
+        }
+    ],
+    "info": "success"
+}
+```
+<br/>
 
 
 
