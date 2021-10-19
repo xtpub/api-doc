@@ -269,7 +269,7 @@ public class RestAPI {
 		map.put("nonce", System.currentTimeMillis());
 		map.put("market", "btc_usdt");
 		map.put("id", "156387346384491");
-		// 签名
+		// 签名 (en:Signature)
 		String signature = HttpUtil.getSignature(map, secretKey);
 		map.put("signature", signature);
 		
@@ -290,7 +290,7 @@ public class RestAPI {
 		map.put("page", 1);
 		map.put("pageSize", 10);
 		
-		// 签名
+		// 签名 (en:Signature)
 		String signature = HttpUtil.getSignature(map, secretKey);
 		map.put("signature", signature);
 		
@@ -320,7 +320,7 @@ public class RestAPI {
 		String data = Base64CoderC.encode(array.toJSONString());
 		
 		map.put("data", data);
-		// 签名
+		// 签名 (en:Signature)
 		String signature = HttpUtil.getSignature(map, secretKey);
 		map.put("signature", signature);
 		
